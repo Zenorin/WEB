@@ -1,0 +1,7 @@
+interface:
+  display_name: "Authz Security Review"
+  short_description: "Review authentication, authorization, tenant/resource scoping, and auditability."
+  default_prompt: "$authz-security-review"
+
+policy:
+  allow_implicit_invocation: true

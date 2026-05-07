@@ -1,0 +1,7 @@
+interface:
+  display_name: "NEEDS TRADE Web Renewal Intake"
+  short_description: "Plan the NEEDS TRADE renewal before implementation: scope, PRD, IA, WBS, service catalog, and conversion flow."
+  default_prompt: "$needs-trade-web-renewal-intake"
+
+policy:
+  allow_implicit_invocation: true

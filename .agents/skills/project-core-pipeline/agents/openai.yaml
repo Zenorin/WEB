@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Core Pipeline"
+  short_description: "Own deterministic core processing, pipeline state, and idempotent execution contracts."
+  default_prompt: "$project-core-pipeline"
+
+policy:
+  allow_implicit_invocation: true

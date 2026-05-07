@@ -1,0 +1,7 @@
+interface:
+  display_name: "Reference Role Report"
+  short_description: "Document why reference files/paths exist before including or excluding behavior."
+  default_prompt: "$reference-role-report"
+
+policy:
+  allow_implicit_invocation: true

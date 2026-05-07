@@ -1,0 +1,162 @@
+{
+  "version": "4.9.5-dev-ops-r1",
+  "project_name": "NEEDS TRADE Web Renewal",
+  "project_type": "web-clean-room-workstreams",
+  "project_size": "large",
+  "bundles": [
+    "web-saas",
+    "browser-extension",
+    "crawler-session",
+    "clean-room-rebuild",
+    "shared-contracts"
+  ],
+  "policy_packs": [
+    "clean-room",
+    "no-feature-deletion",
+    "privacy-boundary"
+  ],
+  "modules": [
+    {
+      "name": "web",
+      "path": "apps/web",
+      "module_type": "frontend-product-ui",
+      "bundles": [
+        "frontend-product-ui"
+      ]
+    },
+    {
+      "name": "api",
+      "path": "apps/api",
+      "module_type": "backend-api",
+      "bundles": [
+        "backend-api"
+      ]
+    },
+    {
+      "name": "extension",
+      "path": "apps/extension",
+      "module_type": "browser-extension",
+      "bundles": [
+        "browser-extension"
+      ]
+    },
+    {
+      "name": "contracts",
+      "path": "packages/contracts",
+      "module_type": "shared-contracts",
+      "bundles": [
+        "shared-contracts"
+      ]
+    },
+    {
+      "name": "core",
+      "path": "packages/core",
+      "module_type": "data-pipeline",
+      "bundles": [
+        "data-pipeline"
+      ]
+    },
+    {
+      "name": "collectors",
+      "path": "packages/collectors",
+      "module_type": "crawler-session",
+      "bundles": [
+        "crawler-session"
+      ]
+    },
+    {
+      "name": "reference-analysis",
+      "path": "tools/reference-analysis",
+      "module_type": "clean-room-rebuild",
+      "bundles": [
+        "clean-room-rebuild"
+      ]
+    }
+  ],
+  "workstreams": [
+    {
+      "skill": "project-development-bootstrap",
+      "name": "Project Development Bootstrap",
+      "module_paths": [
+        "."
+      ]
+    },
+    {
+      "skill": "project-frontend-design",
+      "name": "Project Frontend Design",
+      "module_paths": [
+        "apps/web"
+      ]
+    },
+    {
+      "skill": "project-backend-api",
+      "name": "Project Backend API",
+      "module_paths": [
+        "apps/api"
+      ]
+    },
+    {
+      "skill": "project-contracts",
+      "name": "Project Contracts",
+      "module_paths": [
+        "packages/contracts"
+      ]
+    },
+    {
+      "skill": "project-core-pipeline",
+      "name": "Project Core Pipeline",
+      "module_paths": [
+        "packages/core"
+      ]
+    },
+    {
+      "skill": "project-extension-bridge",
+      "name": "Project Extension Bridge",
+      "module_paths": [
+        "apps/extension"
+      ]
+    },
+    {
+      "skill": "project-market-collectors",
+      "name": "Project Market Collectors",
+      "module_paths": [
+        "packages/collectors"
+      ]
+    },
+    {
+      "skill": "project-reference-mapper",
+      "name": "Project Reference Mapper",
+      "module_paths": [
+        "tools/reference-analysis"
+      ]
+    }
+  ],
+  "scaffold": {
+    "package_manager": "pnpm",
+    "runtime_stack": {
+      "frontend": "react-vite-typescript",
+      "api": "fastapi-python",
+      "extension": "chrome-mv3-typescript"
+    },
+    "generate_project_scaffold": true
+  },
+  "stack_decision": {
+    "mode": "decision-first",
+    "required": true,
+    "selected_stack": {
+      "frontend": "react-vite-typescript",
+      "api": "fastapi-python",
+      "extension": "chrome-mv3-typescript",
+      "package_manager": "pnpm"
+    },
+    "scaffold_generation_policy": "blocked_until_stack_selected",
+    "reason": "Selected React/Vite/TypeScript, FastAPI, Chrome MV3 placeholder, and pnpm workspace from the v4.9.5 web-clean-room preset. For this renewal, web/API/contracts/reference-analysis are active first; extension/collectors/core remain contract/deferred unless URL analysis or collection is approved later."
+  },
+  "allowed_external_hosts": [
+    "github.com",
+    "www.needstrade.com",
+    "needstrade.com",
+    "sourcingchina.co.kr"
+  ],
+  "note": "Hard policies are opt-in via policy_packs, not universal defaults."
+}

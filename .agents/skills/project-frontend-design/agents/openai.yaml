@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Frontend Design"
+  short_description: "Own UI composition, screen states, responsive layout, and browser smoke checks for the web app."
+  default_prompt: "$project-frontend-design"
+
+policy:
+  allow_implicit_invocation: true

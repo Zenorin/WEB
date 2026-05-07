@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Development Bootstrap"
+  short_description: "Create and validate the repo bootstrap, workspace, env template, and shared build scripts without overriding workstream routing."
+  default_prompt: "$project-development-bootstrap"
+
+policy:
+  allow_implicit_invocation: true

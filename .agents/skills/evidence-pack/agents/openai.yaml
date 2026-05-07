@@ -1,0 +1,7 @@
+interface:
+  display_name: "Evidence Pack"
+  short_description: "Collect files changed, commands run, validation results, risks, and next steps before completion."
+  default_prompt: "$evidence-pack"
+
+policy:
+  allow_implicit_invocation: true

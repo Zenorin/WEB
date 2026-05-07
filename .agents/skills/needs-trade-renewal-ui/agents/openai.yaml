@@ -1,0 +1,7 @@
+interface:
+  display_name: "NEEDS TRADE Renewal UI"
+  short_description: "Implement the renewal UI for sourcing/OEM/logistics conversion flows with complete responsive and state coverage."
+  default_prompt: "$needs-trade-renewal-ui"
+
+policy:
+  allow_implicit_invocation: true

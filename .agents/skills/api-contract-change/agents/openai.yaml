@@ -1,0 +1,7 @@
+interface:
+  display_name: "Api Contract Change"
+  short_description: "Plan and review REST/RPC/GraphQL/events/DTO/schema changes for compatibility."
+  default_prompt: "$api-contract-change"
+
+policy:
+  allow_implicit_invocation: true

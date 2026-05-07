@@ -1,0 +1,7 @@
+interface:
+  display_name: "Responsive Layout Review"
+  short_description: "Check desktop, tablet, and mobile layout behavior before completion."
+  default_prompt: "$responsive-layout-review"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Extension Bridge"
+  short_description: "Own extension permissions, message contracts, content/background boundaries, and privacy review."
+  default_prompt: "$project-extension-bridge"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Webpage Reference Renewal"
+  short_description: "Extract clean-room website renewal roles from reference pages without copying implementation, assets, or exact copy."
+  default_prompt: "$webpage-reference-renewal"
+
+policy:
+  allow_implicit_invocation: false

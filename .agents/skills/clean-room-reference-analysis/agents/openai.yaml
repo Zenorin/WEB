@@ -1,0 +1,7 @@
+interface:
+  display_name: "Clean Room Reference Analysis"
+  short_description: "Analyze reference behavior while keeping implementation independent."
+  default_prompt: "$clean-room-reference-analysis"
+
+policy:
+  allow_implicit_invocation: false

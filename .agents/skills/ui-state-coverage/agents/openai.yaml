@@ -1,0 +1,7 @@
+interface:
+  display_name: "Ui State Coverage"
+  short_description: "Ensure loading, empty, error, success, disabled, and permission-denied states are complete."
+  default_prompt: "$ui-state-coverage"
+
+policy:
+  allow_implicit_invocation: true

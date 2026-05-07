@@ -1,0 +1,7 @@
+interface:
+  display_name: "Context Engineering"
+  short_description: "Decide what project context to load, summarize, defer, or reference before coding."
+  default_prompt: "$context-engineering"
+
+policy:
+  allow_implicit_invocation: true

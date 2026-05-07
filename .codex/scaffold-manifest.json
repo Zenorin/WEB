@@ -1,0 +1,153 @@
+{
+  "version": "4.9.5-dev-ops-r1",
+  "package_manager": "pnpm",
+  "runtime_stack": {
+    "frontend": "react-vite-typescript",
+    "api": "fastapi-python",
+    "extension": "chrome-mv3-typescript"
+  },
+  "dev_modules": [
+    {
+      "name": "web",
+      "path": "apps/web",
+      "kind": "app",
+      "entrypoints": [
+        "package.json",
+        "index.html",
+        "src/main.tsx"
+      ]
+    },
+    {
+      "name": "api",
+      "path": "apps/api",
+      "kind": "api",
+      "entrypoints": [
+        "pyproject.toml",
+        "app/main.py"
+      ]
+    },
+    {
+      "name": "extension",
+      "path": "apps/extension",
+      "kind": "extension",
+      "entrypoints": [
+        "package.json",
+        "manifest.json",
+        "src/background.ts"
+      ]
+    },
+    {
+      "name": "contracts",
+      "path": "packages/contracts",
+      "kind": "package",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    },
+    {
+      "name": "core",
+      "path": "packages/core",
+      "kind": "package",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    },
+    {
+      "name": "collectors",
+      "path": "packages/collectors",
+      "kind": "package",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    },
+    {
+      "name": "reference-analysis",
+      "path": "tools/reference-analysis",
+      "kind": "tool",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    }
+  ],
+  "workstreams": [
+    {
+      "skill": "project-development-bootstrap",
+      "module_paths": [
+        "."
+      ]
+    },
+    {
+      "skill": "project-frontend-design",
+      "module_paths": [
+        "apps/web"
+      ]
+    },
+    {
+      "skill": "project-backend-api",
+      "module_paths": [
+        "apps/api"
+      ]
+    },
+    {
+      "skill": "project-contracts",
+      "module_paths": [
+        "packages/contracts"
+      ]
+    },
+    {
+      "skill": "project-core-pipeline",
+      "module_paths": [
+        "packages/core"
+      ]
+    },
+    {
+      "skill": "project-extension-bridge",
+      "module_paths": [
+        "apps/extension"
+      ]
+    },
+    {
+      "skill": "project-market-collectors",
+      "module_paths": [
+        "packages/collectors"
+      ]
+    },
+    {
+      "skill": "project-reference-mapper",
+      "module_paths": [
+        "tools/reference-analysis"
+      ]
+    }
+  ],
+  "module_paths": [
+    "apps/web",
+    "apps/api",
+    "apps/extension",
+    "packages/contracts",
+    "packages/core",
+    "packages/collectors",
+    "tools/reference-analysis"
+  ],
+  "stack_decision": {
+    "mode": "decision-first",
+    "required": true,
+    "selected_stack": {
+      "frontend": "react-vite-typescript",
+      "api": "fastapi-python",
+      "extension": "chrome-mv3-typescript",
+      "package_manager": "pnpm"
+    },
+    "scaffold_generation_policy": "blocked_until_stack_selected",
+    "reason": "Selected React/Vite/TypeScript, FastAPI, Chrome MV3 placeholder, and pnpm workspace from the v4.9.5 web-clean-room preset. For this renewal, web/API/contracts/reference-analysis are active first; extension/collectors/core remain contract/deferred unless URL analysis or collection is approved later."
+  },
+  "clean_room_blocked_patterns": [
+    "background.js",
+    "preload.js",
+    "*.map",
+    "_next/static/chunks"
+  ]
+}

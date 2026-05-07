@@ -1,0 +1,26 @@
+{
+  "name": "needs-trade-web-renewal",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.12.3",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:api": "cd apps/api && pytest",
+    "typecheck": "pnpm -r typecheck",
+    "validate:scaffold": "python -S tools/codex/codex_skillset_generator.py validate-scaffold --root .",
+    "validate:planning": "python -S tools/codex/codex_skillset_generator.py validate-planning --root .",
+    "validate:dev-flow": "python -S tools/codex/codex_skillset_generator.py validate-dev-flow --root .",
+    "workspace:check": "node tools/checks/workspace-check.mjs",
+    "cleanroom:audit": "node tools/checks/cleanroom-audit.mjs",
+    "validate:all": "pnpm typecheck && pnpm build && pnpm test && pnpm test:api && pnpm validate:scaffold && pnpm validate:planning && pnpm validate:dev-flow && pnpm workspace:check && pnpm cleanroom:audit",
+    "dev:api": "cd apps/api && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:web": "pnpm --filter web dev",
+    "build:extension": "pnpm --filter extension build"
+  }
+}

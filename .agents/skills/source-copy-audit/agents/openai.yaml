@@ -1,0 +1,7 @@
+interface:
+  display_name: "Source Copy Audit"
+  short_description: "Check that generated implementation does not copy restricted source text/assets/identifiers."
+  default_prompt: "$source-copy-audit"
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Rocket Growth Inbound Flow"
+  short_description: "Model Coupang Rocket Growth inbound preparation from China-side operations without overclaiming unverified logistics capability."
+  default_prompt: "$rocket-growth-inbound-flow"
+
+policy:
+  allow_implicit_invocation: true

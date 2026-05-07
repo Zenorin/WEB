@@ -1,0 +1,7 @@
+interface:
+  display_name: "Pass Manifest Verification"
+  short_description: "Verify staged pass/manifests and evidence before declaring phase completion."
+  default_prompt: "$pass-manifest-verification"
+
+policy:
+  allow_implicit_invocation: false

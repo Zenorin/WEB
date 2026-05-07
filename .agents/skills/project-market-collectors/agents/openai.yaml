@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Market Collectors"
+  short_description: "Own collector contracts, selector fallbacks, session boundaries, and compliance checks."
+  default_prompt: "$project-market-collectors"
+
+policy:
+  allow_implicit_invocation: true

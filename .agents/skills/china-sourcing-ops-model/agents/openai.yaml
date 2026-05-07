@@ -1,0 +1,7 @@
+interface:
+  display_name: "China Sourcing Operations Model"
+  short_description: "Model China sourcing, OEM/ODM, production, inspection, customs, warehouse, and delivery workflows as explicit statuses and evidence."
+  default_prompt: "$china-sourcing-ops-model"
+
+policy:
+  allow_implicit_invocation: true

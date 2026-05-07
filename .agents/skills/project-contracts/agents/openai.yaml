@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Contracts"
+  short_description: "Own shared DTO/schema/event contracts and compatibility notes."
+  default_prompt: "$project-contracts"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Source Driven Development"
+  short_description: "Use primary sources, official docs, local tests, and existing code before changing behavior."
+  default_prompt: "$source-driven-development"
+
+policy:
+  allow_implicit_invocation: true

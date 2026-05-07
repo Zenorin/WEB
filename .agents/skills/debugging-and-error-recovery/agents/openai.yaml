@@ -1,0 +1,7 @@
+interface:
+  display_name: "Debugging And Error Recovery"
+  short_description: "Handle failures, regressions, flaky behavior, and confusing output with evidence."
+  default_prompt: "$debugging-and-error-recovery"
+
+policy:
+  allow_implicit_invocation: true

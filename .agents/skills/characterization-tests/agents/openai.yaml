@@ -1,0 +1,7 @@
+interface:
+  display_name: "Characterization Tests"
+  short_description: "Capture current behavior before refactoring brittle or unclear code."
+  default_prompt: "$characterization-tests"
+
+policy:
+  allow_implicit_invocation: true

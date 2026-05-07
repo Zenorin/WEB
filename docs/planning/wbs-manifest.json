@@ -1,0 +1,347 @@
+{
+  "version": "4.9.5-dev-ops-r1",
+  "items": [
+    {
+      "id": "WBS-00",
+      "order": 0,
+      "phase": "intake",
+      "title": "Confirm repo state, domain/hosting boundary, and clean-room constraints",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "project-development-bootstrap",
+        "needs-trade-web-renewal-intake",
+        "evidence-pack"
+      ],
+      "target_files": [
+        "AGENTS.md",
+        "README_NEEDS_TRADE_CODEX_SKILLSET.md",
+        "docs/architecture/boundaries.md"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-generated --root ."
+      ],
+      "depends_on": [],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-01",
+      "order": 1,
+      "phase": "stack-decision",
+      "title": "Review selected stack and active/deferred module policy",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "project-development-bootstrap",
+        "planning-and-task-breakdown"
+      ],
+      "target_files": [
+        "docs/decisions/stack-decision.md",
+        "codex-profile.json"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-planning --root ."
+      ],
+      "depends_on": [
+        "WBS-00"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-02",
+      "order": 2,
+      "phase": "bootstrap",
+      "title": "Validate generated repository scaffold",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "project-development-bootstrap",
+        "pass-manifest-verification"
+      ],
+      "target_files": [
+        "package.json",
+        "pnpm-workspace.yaml",
+        ".codex/scaffold-manifest.json"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-scaffold --root ."
+      ],
+      "depends_on": [
+        "WBS-01"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-03",
+      "order": 3,
+      "phase": "reference-analysis",
+      "title": "Write clean-room webpage reference role report",
+      "workstream": "project-reference-mapper",
+      "module_path": "tools/reference-analysis",
+      "suggested_skills": [
+        "project-reference-mapper",
+        "webpage-reference-renewal",
+        "clean-room-reference-analysis",
+        "source-copy-audit"
+      ],
+      "target_files": [
+        "docs/reference/webpage-reference-role-report.md",
+        "tools/reference-analysis/src/index.ts"
+      ],
+      "validation_commands": [
+        "pnpm cleanroom:audit"
+      ],
+      "depends_on": [
+        "WBS-02"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-04",
+      "order": 4,
+      "phase": "renewal-prd",
+      "title": "Write renewal PRD, IA route map, and component inventory",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "needs-trade-web-renewal-intake",
+        "spec-driven-development",
+        "planning-and-task-breakdown"
+      ],
+      "target_files": [
+        "docs/product/renewal-prd.md",
+        "docs/design/ia-route-map.md",
+        "docs/design/component-inventory.md"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-planning --root ."
+      ],
+      "depends_on": [
+        "WBS-03"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-05",
+      "order": 5,
+      "phase": "contracts",
+      "title": "Define quote intake and operations status contracts",
+      "workstream": "project-contracts",
+      "module_path": "packages/contracts",
+      "suggested_skills": [
+        "project-contracts",
+        "quote-intake-contract",
+        "china-sourcing-ops-model",
+        "api-contract-change"
+      ],
+      "target_files": [
+        "packages/contracts/src/index.ts",
+        "docs/contracts/quote-intake-contract.md",
+        "docs/contracts/api-contracts.md"
+      ],
+      "validation_commands": [
+        "pnpm --filter @project/contracts typecheck"
+      ],
+      "depends_on": [
+        "WBS-04"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-06",
+      "order": 6,
+      "phase": "backend-api",
+      "title": "Implement API shell and quote intake envelope boundary",
+      "workstream": "project-backend-api",
+      "module_path": "apps/api",
+      "suggested_skills": [
+        "project-backend-api",
+        "quote-intake-contract",
+        "api-contract-change"
+      ],
+      "target_files": [
+        "apps/api/app/main.py",
+        "apps/api/tests/test_health.py"
+      ],
+      "validation_commands": [
+        "cd apps/api && pytest"
+      ],
+      "depends_on": [
+        "WBS-05"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-07",
+      "order": 7,
+      "phase": "frontend-shell",
+      "title": "Implement renewal web shell and quote CTA state coverage",
+      "workstream": "project-frontend-design",
+      "module_path": "apps/web",
+      "suggested_skills": [
+        "project-frontend-design",
+        "needs-trade-renewal-ui",
+        "ui-state-coverage",
+        "responsive-layout-review",
+        "browser-smoke"
+      ],
+      "target_files": [
+        "apps/web/src/App.tsx",
+        "apps/web/src/main.tsx"
+      ],
+      "validation_commands": [
+        "pnpm --filter web build"
+      ],
+      "depends_on": [
+        "WBS-06"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-08",
+      "order": 8,
+      "phase": "extension-bridge",
+      "title": "Keep extension boundary deferred unless URL analysis is separately approved",
+      "workstream": "project-extension-bridge",
+      "module_path": "apps/extension",
+      "suggested_skills": [
+        "project-extension-bridge",
+        "privacy-boundary-review"
+      ],
+      "target_files": [
+        "apps/extension/manifest.json",
+        "docs/contracts/extension-message-contracts.md"
+      ],
+      "validation_commands": [
+        "pnpm --filter extension build"
+      ],
+      "depends_on": [
+        "WBS-07"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-09",
+      "order": 9,
+      "phase": "collectors",
+      "title": "Keep collector contract deferred and compliance-gated",
+      "workstream": "project-market-collectors",
+      "module_path": "packages/collectors",
+      "suggested_skills": [
+        "project-market-collectors",
+        "session-boundary-security",
+        "source-copy-audit"
+      ],
+      "target_files": [
+        "packages/collectors/src/index.ts",
+        "tools/checks/clean-room-audit-notes.md"
+      ],
+      "validation_commands": [
+        "pnpm --filter @project/collectors typecheck"
+      ],
+      "depends_on": [
+        "WBS-08"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-10",
+      "order": 10,
+      "phase": "core-pipeline",
+      "title": "Model China sourcing and Rocket Growth operations status flow",
+      "workstream": "project-core-pipeline",
+      "module_path": "packages/core",
+      "suggested_skills": [
+        "project-core-pipeline",
+        "china-sourcing-ops-model",
+        "rocket-growth-inbound-flow"
+      ],
+      "target_files": [
+        "packages/core/src/index.ts",
+        "docs/operations/china-sourcing-ops-model.md",
+        "docs/operations/rocket-growth-inbound-flow.md"
+      ],
+      "validation_commands": [
+        "pnpm --filter @project/core typecheck"
+      ],
+      "depends_on": [
+        "WBS-09"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-11",
+      "order": 11,
+      "phase": "integration",
+      "title": "Connect PRD, contracts, API, web, and operations evidence",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "planning-and-task-breakdown",
+        "quote-intake-contract",
+        "evidence-pack"
+      ],
+      "target_files": [
+        "docs/planning/phase-gates.md",
+        "docs/planning/codex-command-queue.md"
+      ],
+      "validation_commands": [
+        "pnpm validate:all"
+      ],
+      "depends_on": [
+        "WBS-10"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    },
+    {
+      "id": "WBS-12",
+      "order": 12,
+      "phase": "handoff",
+      "title": "Prepare evidence pack and next-session command",
+      "workstream": "evidence-pack",
+      "module_path": ".",
+      "suggested_skills": [
+        "evidence-pack",
+        "pass-manifest-verification"
+      ],
+      "target_files": [
+        "PLANS.md",
+        "docs/planning/codex-command-queue.md",
+        "docs/planning/needs-trade-next-codex-commands.md"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-dev-flow --root ."
+      ],
+      "depends_on": [
+        "WBS-11"
+      ],
+      "rollback": "Revert this slice and restore prior generated files/backups if validation fails.",
+      "evidence": "Record changed files, commands, PASS/FAIL output, blockers, and remaining risks.",
+      "status": "todo"
+    }
+  ]
+}

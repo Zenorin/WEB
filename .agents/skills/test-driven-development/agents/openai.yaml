@@ -1,0 +1,7 @@
+interface:
+  display_name: "Test Driven Development"
+  short_description: "Prove added or changed behavior with tests or explicit verification evidence."
+  default_prompt: "$test-driven-development"
+
+policy:
+  allow_implicit_invocation: true

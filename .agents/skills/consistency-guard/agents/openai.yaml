@@ -1,0 +1,7 @@
+interface:
+  display_name: "Consistency Guard"
+  short_description: "Keep file paths, symbols, APIs, DTOs, events, routes, and domain terms aligned."
+  default_prompt: "$consistency-guard"
+
+policy:
+  allow_implicit_invocation: true

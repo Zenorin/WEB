@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Reference Mapper"
+  short_description: "Own clean-room reference role reports, contract extraction, and source-copy audit evidence."
+  default_prompt: "$project-reference-mapper"
+
+policy:
+  allow_implicit_invocation: true

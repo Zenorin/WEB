@@ -1,0 +1,7 @@
+interface:
+  display_name: "Code Review And Quality"
+  short_description: "Review correctness, maintainability, contracts, risks, tests, and documentation."
+  default_prompt: "$code-review-and-quality"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Spec Driven Development"
+  short_description: "Write or update a specification, PRD, interface contract, or acceptance criteria before implementation."
+  default_prompt: "$spec-driven-development"
+
+policy:
+  allow_implicit_invocation: true

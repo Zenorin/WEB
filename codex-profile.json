@@ -1,0 +1,506 @@
+{
+  "project_name": "NEEDS TRADE Web Renewal",
+  "project_type": "web-clean-room-workstreams",
+  "project_size": "large",
+  "bundles": [
+    "web-saas",
+    "browser-extension",
+    "crawler-session",
+    "clean-room-rebuild",
+    "shared-contracts"
+  ],
+  "policy_packs": [
+    "clean-room",
+    "no-feature-deletion",
+    "privacy-boundary"
+  ],
+  "allow_custom_skills": true,
+  "package_manager": "pnpm",
+  "runtime_stack": {
+    "frontend": "react-vite-typescript",
+    "api": "fastapi-python",
+    "extension": "chrome-mv3-typescript"
+  },
+  "stack_selection_mode": "decision-first",
+  "stack_decision_required": true,
+  "selected_stack": {
+    "frontend": "react-vite-typescript",
+    "api": "fastapi-python",
+    "extension": "chrome-mv3-typescript",
+    "package_manager": "pnpm"
+  },
+  "stack_candidates": [
+    {
+      "name": "react-vite-fastapi",
+      "frontend": "react-vite-typescript",
+      "api": "fastapi-python",
+      "extension": "chrome-mv3-typescript",
+      "package_manager": "pnpm",
+      "reason": "Default for clean-room web plus local Python API prototyping."
+    },
+    {
+      "name": "react-vite-fastify",
+      "frontend": "react-vite-typescript",
+      "api": "fastify-typescript",
+      "extension": "chrome-mv3-typescript",
+      "package_manager": "pnpm",
+      "reason": "Use when a single TypeScript runtime is preferred."
+    }
+  ],
+  "stack_decision_reason": "Selected React/Vite/TypeScript, FastAPI, Chrome MV3 placeholder, and pnpm workspace from the v4.9.5 web-clean-room preset. For this renewal, web/API/contracts/reference-analysis are active first; extension/collectors/core remain contract/deferred unless URL analysis or collection is approved later.",
+  "scaffold_generation_policy": "blocked_until_stack_selected",
+  "generate_project_scaffold": true,
+  "max_project_skills": 42,
+  "max_initial_metadata_chars": 9800,
+  "commands": {
+    "install": "pnpm install && cd apps/api && python -m pip install -e .[dev]",
+    "dev_web": "pnpm --filter web dev",
+    "dev_api": "cd apps/api && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "dev_extension": "pnpm --filter extension build",
+    "test": "pnpm -r test && cd apps/api && pytest",
+    "build": "pnpm -r build",
+    "validate_scaffold": "python -S tools/codex/codex_skillset_generator.py validate-scaffold --root ."
+  },
+  "modules": [
+    {
+      "name": "web",
+      "path": "apps/web",
+      "module_type": "frontend-product-ui",
+      "bundles": [
+        "frontend-product-ui"
+      ],
+      "preferred_skills": [
+        "project-frontend-design",
+        "needs-trade-renewal-ui",
+        "quote-intake-contract",
+        "rocket-growth-inbound-flow",
+        "frontend-product-ui",
+        "design-system-consistency",
+        "ui-state-coverage",
+        "responsive-layout-review",
+        "browser-smoke"
+      ],
+      "commands": {},
+      "local_boundaries": [
+        "Do not copy reference markup/classes/assets/copy.",
+        "All pages must be mobile-first and expose full UI states."
+      ],
+      "quality_gates": [],
+      "policy_packs": []
+    },
+    {
+      "name": "api",
+      "path": "apps/api",
+      "module_type": "backend-api",
+      "bundles": [
+        "backend-api"
+      ],
+      "preferred_skills": [
+        "project-backend-api",
+        "quote-intake-contract",
+        "api-contract-change",
+        "api-error-handling-review",
+        "backend-test-matrix",
+        "authz-security-review"
+      ],
+      "commands": {},
+      "local_boundaries": [],
+      "quality_gates": [],
+      "policy_packs": []
+    },
+    {
+      "name": "extension",
+      "path": "apps/extension",
+      "module_type": "browser-extension",
+      "bundles": [
+        "browser-extension"
+      ],
+      "preferred_skills": [
+        "project-extension-bridge",
+        "extension-permission-review",
+        "content-script-boundary",
+        "message-contract-review",
+        "privacy-boundary-review"
+      ],
+      "commands": {},
+      "local_boundaries": [],
+      "quality_gates": [],
+      "policy_packs": []
+    },
+    {
+      "name": "contracts",
+      "path": "packages/contracts",
+      "module_type": "shared-contracts",
+      "bundles": [
+        "shared-contracts"
+      ],
+      "preferred_skills": [
+        "project-contracts",
+        "quote-intake-contract",
+        "china-sourcing-ops-model",
+        "rocket-growth-inbound-flow",
+        "api-contract-change",
+        "backward-compat-check",
+        "consistency-guard"
+      ],
+      "commands": {},
+      "local_boundaries": [],
+      "quality_gates": [],
+      "policy_packs": []
+    },
+    {
+      "name": "core",
+      "path": "packages/core",
+      "module_type": "data-pipeline",
+      "bundles": [
+        "data-pipeline"
+      ],
+      "preferred_skills": [
+        "project-core-pipeline",
+        "china-sourcing-ops-model",
+        "rocket-growth-inbound-flow",
+        "schema-contract-check",
+        "data-quality-gate",
+        "idempotency-check"
+      ],
+      "commands": {},
+      "local_boundaries": [],
+      "quality_gates": [],
+      "policy_packs": []
+    },
+    {
+      "name": "collectors",
+      "path": "packages/collectors",
+      "module_type": "crawler-session",
+      "bundles": [
+        "crawler-session"
+      ],
+      "preferred_skills": [
+        "project-market-collectors",
+        "crawler-contract-review",
+        "session-boundary-security",
+        "anti-bot-compliance-check"
+      ],
+      "commands": {},
+      "local_boundaries": [],
+      "quality_gates": [],
+      "policy_packs": []
+    },
+    {
+      "name": "reference-analysis",
+      "path": "tools/reference-analysis",
+      "module_type": "clean-room-rebuild",
+      "bundles": [
+        "clean-room-rebuild"
+      ],
+      "preferred_skills": [
+        "project-reference-mapper",
+        "webpage-reference-renewal",
+        "clean-room-reference-analysis",
+        "reference-role-report",
+        "contract-extraction",
+        "source-copy-audit"
+      ],
+      "commands": {},
+      "local_boundaries": [],
+      "quality_gates": [],
+      "policy_packs": []
+    }
+  ],
+  "workstreams": [
+    {
+      "skill": "project-development-bootstrap",
+      "name": "Project Development Bootstrap",
+      "module_paths": [
+        "."
+      ],
+      "objective": "Create and validate the repo bootstrap, workspace, env template, and shared build scripts without overriding workstream routing.",
+      "workflow": [
+        "Create root package/workspace/env/check files.",
+        "Do not decide feature implementation details for app/package modules.",
+        "Validate scaffold paths against module/workstream routing."
+      ],
+      "quality_gates": [
+        "Root package/workspace files exist.",
+        "No secret values are committed.",
+        "validate-scaffold passes."
+      ],
+      "handoff": []
+    },
+    {
+      "skill": "project-frontend-design",
+      "name": "Project Frontend Design",
+      "module_paths": [
+        "apps/web"
+      ],
+      "objective": "Own UI composition, screen states, responsive layout, and browser smoke checks for the web app.",
+      "workflow": [
+        "Review screen goal, route, states, and primary action.",
+        "Implement reusable React/Vite components without dropping UX states.",
+        "Run build/typecheck or document blockers."
+      ],
+      "quality_gates": [
+        "Web build or blocker evidence exists.",
+        "Loading/empty/error/success states are covered."
+      ],
+      "handoff": []
+    },
+    {
+      "skill": "project-backend-api",
+      "name": "Project Backend API",
+      "module_paths": [
+        "apps/api"
+      ],
+      "objective": "Own API entrypoints, error envelopes, persistence boundary, authz, and backend test matrix.",
+      "workflow": [
+        "Define request/response/error contracts.",
+        "Keep handler/service/repository responsibilities separated.",
+        "Run backend tests or document blockers."
+      ],
+      "quality_gates": [
+        "Health route exists.",
+        "API contract changes have tests or explicit evidence."
+      ],
+      "handoff": []
+    },
+    {
+      "skill": "project-contracts",
+      "name": "Project Contracts",
+      "module_paths": [
+        "packages/contracts"
+      ],
+      "objective": "Own shared DTO/schema/event contracts and compatibility notes.",
+      "workflow": [
+        "Define stable public shapes.",
+        "Check downstream impact before changing fields.",
+        "Document migrations for breaking changes."
+      ],
+      "quality_gates": [
+        "Contract package builds.",
+        "Breaking changes include migration notes."
+      ],
+      "handoff": []
+    },
+    {
+      "skill": "project-core-pipeline",
+      "name": "Project Core Pipeline",
+      "module_paths": [
+        "packages/core"
+      ],
+      "objective": "Own deterministic core processing, pipeline state, and idempotent execution contracts.",
+      "workflow": [
+        "Separate pure core logic from IO.",
+        "Define retry/cancel/error behavior.",
+        "Add deterministic tests for core transformations."
+      ],
+      "quality_gates": [
+        "Core package builds.",
+        "Idempotency risks reviewed."
+      ],
+      "handoff": []
+    },
+    {
+      "skill": "project-extension-bridge",
+      "name": "Project Extension Bridge",
+      "module_paths": [
+        "apps/extension"
+      ],
+      "objective": "Own extension permissions, message contracts, content/background boundaries, and privacy review.",
+      "workflow": [
+        "Minimize manifest permissions.",
+        "Define message payload/reply/error shapes.",
+        "Keep content scripts separated from privileged background logic."
+      ],
+      "quality_gates": [
+        "Manifest permissions are justified.",
+        "Message contract is documented."
+      ],
+      "handoff": []
+    },
+    {
+      "skill": "project-market-collectors",
+      "name": "Project Market Collectors",
+      "module_paths": [
+        "packages/collectors"
+      ],
+      "objective": "Own collector contracts, selector fallbacks, session boundaries, and compliance checks.",
+      "workflow": [
+        "Define allowed inputs/outputs/errors.",
+        "Avoid brittle selector-only assumptions.",
+        "Respect session/access-control boundaries."
+      ],
+      "quality_gates": [
+        "Collector output schema is stable.",
+        "Anti-bot and session boundaries reviewed."
+      ],
+      "handoff": []
+    },
+    {
+      "skill": "project-reference-mapper",
+      "name": "Project Reference Mapper",
+      "module_paths": [
+        "tools/reference-analysis"
+      ],
+      "objective": "Own clean-room reference role reports, contract extraction, and source-copy audit evidence.",
+      "workflow": [
+        "Treat reference files as read-only.",
+        "Extract roles/contracts without copying implementation.",
+        "Write role reports before excluding observed behavior."
+      ],
+      "quality_gates": [
+        "Role report exists.",
+        "Source-copy audit passes."
+      ],
+      "handoff": []
+    }
+  ],
+  "dev_modules": [
+    {
+      "name": "web",
+      "path": "apps/web",
+      "kind": "app",
+      "entrypoints": [
+        "package.json",
+        "index.html",
+        "src/main.tsx"
+      ]
+    },
+    {
+      "name": "api",
+      "path": "apps/api",
+      "kind": "api",
+      "entrypoints": [
+        "pyproject.toml",
+        "app/main.py"
+      ]
+    },
+    {
+      "name": "extension",
+      "path": "apps/extension",
+      "kind": "extension",
+      "entrypoints": [
+        "package.json",
+        "manifest.json",
+        "src/background.ts"
+      ]
+    },
+    {
+      "name": "contracts",
+      "path": "packages/contracts",
+      "kind": "package",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    },
+    {
+      "name": "core",
+      "path": "packages/core",
+      "kind": "package",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    },
+    {
+      "name": "collectors",
+      "path": "packages/collectors",
+      "kind": "package",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    },
+    {
+      "name": "reference-analysis",
+      "path": "tools/reference-analysis",
+      "kind": "tool",
+      "entrypoints": [
+        "package.json",
+        "src/index.ts"
+      ]
+    }
+  ],
+  "domain_terms": [
+    {
+      "canonical": "NEEDS TRADE",
+      "avoid": [
+        "reference brand copy",
+        "competitor copy"
+      ],
+      "notes": "Use as renewal brand unless the user changes it."
+    },
+    {
+      "canonical": "quote request",
+      "avoid": [
+        "loose inquiry",
+        "contact blob"
+      ],
+      "notes": "Customer request object for sourcing/OEM/logistics estimate."
+    },
+    {
+      "canonical": "customer workspace",
+      "avoid": [
+        "unsupported dashboard"
+      ],
+      "notes": "Customer-facing status/evidence tracking area."
+    },
+    {
+      "canonical": "operations status",
+      "avoid": [
+        "maybe stage",
+        "thing"
+      ],
+      "notes": "Stable enum shared by web/API/admin."
+    },
+    {
+      "canonical": "Rocket Growth inbound",
+      "avoid": [
+        "unverified direct shipping claim"
+      ],
+      "notes": "Coupang inbound preparation flow; verify actual responsibilities before public claims."
+    }
+  ],
+  "boundaries": [
+    "Reference pages are read-only. Extract roles, IA, flows, service taxonomy, and conversion logic only.",
+    "Do not copy source code, HTML, CSS, JavaScript, images, icons, logos, slogans, exact marketing copy, hidden text, tracking snippets, cookies, sessions, or credentials from reference pages.",
+    "Do not delete existing behavior without role trace, replacement, migration, or explicit approval.",
+    "Do not claim regulated services such as KC certification, origin work, customs agency, or Coupang inbound responsibility unless the operational responsibility is explicitly modeled.",
+    "Real secrets, API keys, hosting credentials, domain logins, customer data, cookies, and session values must stay out of repo docs, AGENTS, SKILL files, command queues, and .env.example.",
+    "Use clean-room role reports as implementation authority, not competitor/reference implementation.",
+    "For this project, apps/web, apps/api, packages/contracts, docs/product, docs/planning, and tools/reference-analysis are active first. apps/extension and packages/collectors are deferred unless a separate URL-analysis/collection slice is approved."
+  ],
+  "quality_gates": [
+    "Planning validators must pass before implementation slices.",
+    "Clean-room audit must pass after any reference-driven UI/content change.",
+    "Public contract/status changes require docs and tests or explicit validation examples.",
+    "Frontend forms must cover validation, loading, error, success, and disabled states.",
+    "Every slice must report changed files, commands run, PASS/FAIL, risks, rollback note, and personal input needs."
+  ],
+  "allowed_external_hosts": [
+    "github.com",
+    "www.needstrade.com",
+    "needstrade.com",
+    "sourcingchina.co.kr"
+  ],
+  "forbidden_defaults": [
+    "copy competitor source/assets/copy",
+    "store real credentials in repo",
+    "mock-success fallback",
+    "unverified regulated-service claim",
+    "hidden customer/session collection",
+    "tracking snippet copied from reference"
+  ],
+  "extra_skills": [
+    "needs-trade-web-renewal-intake",
+    "webpage-reference-renewal",
+    "needs-trade-renewal-ui",
+    "quote-intake-contract",
+    "china-sourcing-ops-model",
+    "rocket-growth-inbound-flow",
+    "design-system-consistency",
+    "ui-state-coverage",
+    "responsive-layout-review",
+    "browser-smoke"
+  ]
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Security And Hardening"
+  short_description: "Review auth, permissions, secrets, user data, networking, IPC, storage, and execution boundaries."
+  default_prompt: "$security-and-hardening"
+
+policy:
+  allow_implicit_invocation: true

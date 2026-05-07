@@ -1,0 +1,7 @@
+interface:
+  display_name: "No Feature Deletion Guard"
+  short_description: "Prevent deletion/hiding of behavior without role trace, replacement, migration, or approval."
+  default_prompt: "$no-feature-deletion-guard"
+
+policy:
+  allow_implicit_invocation: true

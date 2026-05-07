@@ -1,0 +1,174 @@
+{
+  "version": "4.9.5-dev-ops-r1",
+  "commands": [
+    {
+      "id": "WBS-00",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "project-development-bootstrap",
+        "needs-trade-web-renewal-intake",
+        "evidence-pack"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-generated --root ."
+      ]
+    },
+    {
+      "id": "WBS-01",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "project-development-bootstrap",
+        "planning-and-task-breakdown"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-planning --root ."
+      ]
+    },
+    {
+      "id": "WBS-02",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "project-development-bootstrap",
+        "pass-manifest-verification"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-scaffold --root ."
+      ]
+    },
+    {
+      "id": "WBS-03",
+      "workstream": "project-reference-mapper",
+      "module_path": "tools/reference-analysis",
+      "suggested_skills": [
+        "project-reference-mapper",
+        "webpage-reference-renewal",
+        "clean-room-reference-analysis",
+        "source-copy-audit"
+      ],
+      "validation_commands": [
+        "pnpm cleanroom:audit"
+      ]
+    },
+    {
+      "id": "WBS-04",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "needs-trade-web-renewal-intake",
+        "spec-driven-development",
+        "planning-and-task-breakdown"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-planning --root ."
+      ]
+    },
+    {
+      "id": "WBS-05",
+      "workstream": "project-contracts",
+      "module_path": "packages/contracts",
+      "suggested_skills": [
+        "project-contracts",
+        "quote-intake-contract",
+        "china-sourcing-ops-model",
+        "api-contract-change"
+      ],
+      "validation_commands": [
+        "pnpm --filter @project/contracts typecheck"
+      ]
+    },
+    {
+      "id": "WBS-06",
+      "workstream": "project-backend-api",
+      "module_path": "apps/api",
+      "suggested_skills": [
+        "project-backend-api",
+        "quote-intake-contract",
+        "api-contract-change"
+      ],
+      "validation_commands": [
+        "cd apps/api && pytest"
+      ]
+    },
+    {
+      "id": "WBS-07",
+      "workstream": "project-frontend-design",
+      "module_path": "apps/web",
+      "suggested_skills": [
+        "project-frontend-design",
+        "needs-trade-renewal-ui",
+        "ui-state-coverage",
+        "responsive-layout-review",
+        "browser-smoke"
+      ],
+      "validation_commands": [
+        "pnpm --filter web build"
+      ]
+    },
+    {
+      "id": "WBS-08",
+      "workstream": "project-extension-bridge",
+      "module_path": "apps/extension",
+      "suggested_skills": [
+        "project-extension-bridge",
+        "privacy-boundary-review"
+      ],
+      "validation_commands": [
+        "pnpm --filter extension build"
+      ]
+    },
+    {
+      "id": "WBS-09",
+      "workstream": "project-market-collectors",
+      "module_path": "packages/collectors",
+      "suggested_skills": [
+        "project-market-collectors",
+        "session-boundary-security",
+        "source-copy-audit"
+      ],
+      "validation_commands": [
+        "pnpm --filter @project/collectors typecheck"
+      ]
+    },
+    {
+      "id": "WBS-10",
+      "workstream": "project-core-pipeline",
+      "module_path": "packages/core",
+      "suggested_skills": [
+        "project-core-pipeline",
+        "china-sourcing-ops-model",
+        "rocket-growth-inbound-flow"
+      ],
+      "validation_commands": [
+        "pnpm --filter @project/core typecheck"
+      ]
+    },
+    {
+      "id": "WBS-11",
+      "workstream": "project-development-bootstrap",
+      "module_path": ".",
+      "suggested_skills": [
+        "planning-and-task-breakdown",
+        "quote-intake-contract",
+        "evidence-pack"
+      ],
+      "validation_commands": [
+        "pnpm validate:all"
+      ]
+    },
+    {
+      "id": "WBS-12",
+      "workstream": "evidence-pack",
+      "module_path": ".",
+      "suggested_skills": [
+        "evidence-pack",
+        "pass-manifest-verification"
+      ],
+      "validation_commands": [
+        "python -S tools/codex/codex_skillset_generator.py validate-dev-flow --root ."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+sandbox_mode = "workspace-write"
+web_search = "cached"
+project_doc_max_bytes = 32768
+project_root_markers = [".git"]
+
+[sandbox_workspace_write]
+network_access = false
+
+[agents]
+max_threads = 4
+max_depth = 1
+
+[analytics]
+enabled = false

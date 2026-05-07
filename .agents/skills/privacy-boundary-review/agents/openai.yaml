@@ -1,0 +1,7 @@
+interface:
+  display_name: "Privacy Boundary Review"
+  short_description: "Review data collection, storage, logging, export, egress, and user consent boundaries."
+  default_prompt: "$privacy-boundary-review"
+
+policy:
+  allow_implicit_invocation: true

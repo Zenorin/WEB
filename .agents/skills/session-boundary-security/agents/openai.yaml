@@ -1,0 +1,7 @@
+interface:
+  display_name: "Session Boundary Security"
+  short_description: "Review cookie/session/token storage, manual login boundaries, and credential handling."
+  default_prompt: "$session-boundary-security"
+
+policy:
+  allow_implicit_invocation: true

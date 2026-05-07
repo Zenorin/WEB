@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design System Consistency"
+  short_description: "Keep spacing, typography, component variants, colors, radius, and interaction patterns consistent."
+  default_prompt: "$design-system-consistency"
+
+policy:
+  allow_implicit_invocation: true

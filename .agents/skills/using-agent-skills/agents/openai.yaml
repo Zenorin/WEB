@@ -1,0 +1,7 @@
+interface:
+  display_name: "Using Agent Skills"
+  short_description: "Select the minimum relevant skills, modules, commands, references, and policy packs for the current task."
+  default_prompt: "$using-agent-skills"
+
+policy:
+  allow_implicit_invocation: true

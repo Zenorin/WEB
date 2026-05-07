@@ -1,0 +1,7 @@
+interface:
+  display_name: "Incremental Implementation"
+  short_description: "Build the smallest coherent slice and keep changes reversible."
+  default_prompt: "$incremental-implementation"
+
+policy:
+  allow_implicit_invocation: true

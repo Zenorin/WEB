@@ -1,0 +1,7 @@
+interface:
+  display_name: "Browser Smoke"
+  short_description: "Run or describe browser-facing smoke checks for routes, forms, states, and flows."
+  default_prompt: "$browser-smoke"
+
+policy:
+  allow_implicit_invocation: true

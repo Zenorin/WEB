@@ -1,0 +1,7 @@
+interface:
+  display_name: "Contract Extraction"
+  short_description: "Extract interfaces, inputs, outputs, errors, and invariants from references without copying implementation."
+  default_prompt: "$contract-extraction"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Data Egress Review"
+  short_description: "Review external transmission, telemetry, reports, webhooks, uploads, and logs."
+  default_prompt: "$data-egress-review"
+
+policy:
+  allow_implicit_invocation: false

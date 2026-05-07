@@ -1,0 +1,7 @@
+interface:
+  display_name: "Planning And Task Breakdown"
+  short_description: "Split work into small, verifiable vertical slices with dependencies and validation steps."
+  default_prompt: "$planning-and-task-breakdown"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Quote Intake Contract"
+  short_description: "Define and maintain the quote/request/status contract across web, API, contracts, workspace, and admin flows."
+  default_prompt: "$quote-intake-contract"
+
+policy:
+  allow_implicit_invocation: true
