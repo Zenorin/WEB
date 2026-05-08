@@ -29,7 +29,9 @@ For NEEDS TRADE, Rocket Growth planning means China-side preparation and coordin
 | Task | Status mapping | Evidence |
 |---|---|---|
 | Record inbound-prep request | `request_received` / `reviewing` | Request summary and missing information. |
+| Check supplier or warehouse feasibility | `supplier_discovery` | Supplier, warehouse, MOQ, lead time, or readiness assumptions. |
 | Confirm SKU/quantity assumptions | `quote_preparing` | Quote assumptions and required inputs. |
+| Send quote or preparation scope | `quote_sent` | Customer-visible quote or scope summary. |
 | Receive goods in China warehouse | `china_warehouse_received` | Receipt count, SKU note, warehouse photos. |
 | Check quantity and visible condition | `inspection_running` | Inspection checklist, photos, defect notes. |
 | Prepare labels/barcodes/cartons/pallets | `labeling_packaging` | Label/barcode record, packing photos, carton/pallet notes. |
@@ -40,15 +42,16 @@ For NEEDS TRADE, Rocket Growth planning means China-side preparation and coordin
 ## Flow states
 1. `request_received`
 2. `reviewing`
-3. `quote_preparing`
-4. `quote_sent`
-5. `china_warehouse_received`
-6. `inspection_running`
-7. `labeling_packaging`
-8. `rocket_growth_inbound_prep`
-9. `customs_shipping`
-10. `inbound_complete`
-11. `completed`
+3. `supplier_discovery`
+4. `quote_preparing`
+5. `quote_sent`
+6. `china_warehouse_received`
+7. `inspection_running`
+8. `labeling_packaging`
+9. `rocket_growth_inbound_prep`
+10. `customs_shipping`
+11. `inbound_complete`
+12. `completed`
 
 `blocked` and `cancelled` may interrupt the flow when customer inputs, documents, supplier responses, payment/approval, or operational issues stop progress.
 
@@ -59,6 +62,24 @@ For NEEDS TRADE, Rocket Growth planning means China-side preparation and coordin
 - `rocket_growth_inbound_prep`: inbound preparation checklist, packing list, coordination notes.
 - `customs_shipping`: export/import document readiness notes and shipping coordination status.
 - `inbound_complete`: final handoff evidence and preparation completion note.
+
+## Rocket Growth inbound record statuses
+`RocketGrowthInboundRecord.status` must use only `RocketGrowthInboundStatus` values from `packages/contracts/src/index.ts`.
+
+| RocketGrowthInboundStatus | Meaning |
+|---|---|
+| `not_started` | Inbound preparation has not started. |
+| `requirements_reviewing` | Customer inputs, SKU/barcode/carton/compliance assumptions, and scope are under review. |
+| `china_warehouse_received` | Goods have been received at the China warehouse or partner warehouse. |
+| `quantity_checking` | Quantity, SKU, and visible condition checks are underway. |
+| `inspection_photo_evidence` | Inspection/photo evidence is being prepared where supported. |
+| `labeling_barcode_packaging` | Label, barcode, packing, carton, or related preparation work is underway. |
+| `carton_pallet_preparation` | Carton, pallet, wrapping, or packing-list preparation is underway. |
+| `document_coordination` | Export/import, shipping, or inbound document readiness is being coordinated. |
+| `inbound_handoff_ready` | Preparation evidence and handoff materials are ready. |
+| `inbound_support_complete` | China-side inbound support work is complete. |
+| `blocked` | Required input, document, supplier response, approval, or operational issue is blocking progress. |
+| `cancelled` | Inbound preparation support was cancelled. |
 
 ## Claim boundaries
 - Completion of inspection, labeling, packing, or handoff evidence does not mean Coupang has approved or accepted inbound inventory.

@@ -19,9 +19,11 @@ This model covers China sourcing, purchase agency, OEM/ODM, goods production coo
 |---|---|---|---|
 | `request_received` | Request received | Inquiry accepted and recorded. | Request summary and service selection. |
 | `reviewing` | Under review | Operator reviews requested services and missing details. | Operator questions or review note. |
+| `supplier_discovery` | Supplier discovery | Supplier candidates, MOQ, lead time, or feasibility are being checked. | Supplier candidate note and quote assumptions. |
 | `quote_preparing` | Quote preparing | Quote assumptions and supplier/product feasibility are being reviewed. | Estimate assumptions and required inputs. |
 | `quote_sent` | Quote sent | Quote or estimate summary has been delivered. | Quote summary/document reference. |
 | `sample_requested` | Sample requested | OEM/sample request has been initiated or coordinated. | Sample specs and milestone note. |
+| `sample_reviewing` | Sample reviewing | Sample evidence, customer feedback, or revision questions are being reviewed. | Sample review note and approved photos where applicable. |
 | `production_pending` | Production pending | Production plan, supplier confirmation, or approval is pending. | Supplier or production plan note. |
 | `production_running` | Production running | Production coordination is underway. | Progress notes and issue records. |
 | `china_warehouse_received` | China warehouse received | Goods have arrived at the China warehouse or partner warehouse. | Receipt count, SKU note, warehouse photos. |
